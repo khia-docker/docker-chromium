@@ -1,0 +1,3 @@
+#!/bin/bash
+#FIXME support the case when multiple Xorg servers are running
+echo "-v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -e QT_X11_NO_MITSHM=1 -e GNOME_DESKTOP_SESSION_ID=\"this-is-deprecated\""

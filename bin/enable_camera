@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ -z ${VIDEO_DEV} ]; then
+  for device in /dev/video*
+  do
+    VIDEO_ARGS="--device=${device} -v ${device}:${device} ${VIDEO_ARGS}"
+  done
+else
+  VIDEO_ARGS="--device=${VIDEO_DEV} -v ${VIDEO_DEV}:${VIDEO_DEV}"
+fi
+echo ${VIDEO_ARGS}

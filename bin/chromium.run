@@ -1,0 +1,10 @@
+#!/bin/bash
+SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
+if [ "$#" -ne 1 ]; then
+  echo "Usage $0 <profile directory>"
+  exit 1
+fi
+sound_args=$(${SCRIPT_DIR}/enable_sound $1)
+video_args=$(${SCRIPT_DIR}/enable_video $1)
+camera_args=$(${SCRIPT_DIR}/enable_camera $1)
+docker run ${video_args} ${sound_args} ${camera_args} -v $1:/data/.chromium diet/docker-chromium
